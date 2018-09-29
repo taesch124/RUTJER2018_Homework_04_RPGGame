@@ -1,5 +1,6 @@
 let characterSelected = false;
 let enemySelected = false;
+let gameOver = false;
 let damageIncrease;
 
 let player, enemy;
@@ -27,7 +28,7 @@ function selectCharacter() {
         characterElement.appendTo($('#your-character'));
         $('#character-selection .character-card').appendTo($('#available-enemies'));
         characterSelected = true;
-    } else if(!enemySelected) {
+    } else if(!enemySelected && !characterElement.hasClass('player')) {
         enemy = new Character(name, health, attack, counterAttack);
         characterElement.addClass('opponent');
         characterElement.appendTo('#attacking-enemy');
@@ -36,16 +37,15 @@ function selectCharacter() {
 }
 
 function attackEnemy() {
+    $("#combat-log").empty();
     if(!characterSelected){ 
-        $('#combat-log').empty();
         printMessage("Select a character");
         return;
     } else if(!enemySelected) {
-        $('#combat-log').empty();
         printMessage('Select opponent');
         return;
     }
-    $("#combat-log").empty();
+   
 
     
     let enemyHp = $('.opponent .character-hitpoints');
@@ -65,19 +65,43 @@ function attackEnemy() {
 function enemyCounterAttack() {
     let playerHp = $('.player .character-hitpoints');
     player.health -= enemy.counterAttack;
-    playerHp.text(player.health - enemy.counterAttack);
-    printMessage(enemy.name + ' deals ' + enemy.counterAttack + ' damage to ' + player.name + '.');
+    playerHp.text(player.health);
+    printMessage(enemy.name + ' counterattacks for ' + enemy.counterAttack + ' damage to ' + player.name + '.');
 
     if(player.health <= 0) {
         printMessage(player.name + ' is dead!');
         player.isDead = true;
+        playerDied();
     } 
+}
+
+function playerDied() {
+    printMessage('Game Over!');
+    printMessage('Select a new character.');
+    resetGame();
 }
 
 function enemyDied() {
     enemySelected = false;
     enemy = undefined;
-    $('#attacking-enemy').empty();
+    $('#attacking-enemy .opponent').appendTo($('#defeated-enemies'));
+    $('#defeated-enemies .opponent').removeClass('opponent');
+}
+
+function resetGame() {
+    characterSelected = false;
+    enemySelected = false;
+    $('#your-character .character-card').removeClass('player');
+    $('#your-character .character-card').appendTo('#character-selection');
+    $('#attacking-enemy .character-card').removeClass('opponent');
+    $('#attacking-enemy .character-card').appendTo('#character-selection');
+    $('#defeated-enemies .character-card').appendTo('#character-selection');
+    //find a way to reset character health
+    let characters = $('#character-selection .character-card')
+    characters.each((i, e) => {
+        jQuery(characters[i]).children('.character-hitpoints').text(jQuery(characters[i]).data('health'));
+    });
+        
 }
 
 function printMessage(message) {
