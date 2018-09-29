@@ -1,0 +1,73 @@
+/*
+=============================================
+Page Styles
+=============================================
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 18px;
+}
+
+.wrapper {
+    height: 100vh;
+    max-height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.row-content {
+    display: flex;
+    padding: .5rem 1.5rem;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+/*
+.defeated-opponents {
+
+}
+*/
+
+#combat-log {
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1 0 auto;
+}
+
+
+
+
+/*
+=============================================
+Character Card
+=============================================
+*/
+
+
+/*
+=============================================
+Character Card
+=============================================
+*/
+
+.character-card {
+    text-align: center;
+    border: 1px solid black;
+    min-width: 240px;
+    max-width: 20%;
+}
+
+.character-portrait {
+    width: 80%;
+    height: auto;
+}
+

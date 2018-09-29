@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RPG Game</title>
+
+        <link rel="stylesheet" type="text/css" href="./assets/stylesheets/reset.css">
+        <link rel="stylesheet" type="text/css" href="./assets/stylesheets/main.css">
+
+        <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="row-content" id="character-selection">
+
+                <div class="character-card" id="darthmaul" data-name="Darth Maul" data-health="160" data-attack="5" data-counter-attack="20">
+                    <h2 class="character-name">Darth Maul</h2>
+                    <img class="character-portrait" src="./assets/images/characters/darth-maul-portrait.jpeg" alt="Darth Maul character portrait.">
+                    <h4 class="character-hitpoints">160</h4>
+                </div>
+
+                <div class="character-card" id="obiwan" data-name="Obi-wan Kenobi" data-health="120" data-attack="6" data-counter-attack="25">
+                    <h2 class="character-name">Obi-wan Kenobi</h2>
+                    <img class="character-portrait" src="./assets/images/characters/obi-wan-portrait.jpg" alt="Obi-Wan character portrait.">
+                    <h4 class="character-hitpoints">120</h4>
+                </div>
+
+                <div class="character-card" id="macewindu" data-name="Mace Windu" data-health="200" data-attack="4" data-counter-attack="15">
+                    <h2 class="character-name">Mace Windu</h2>
+                    <img class="character-portrait" src="./assets/images/characters/mace-windu-portrait.jpg" alt="Mace Windu character portrait.">
+                    <h4 class="character-hitpoints">200</h4>
+                </div>
+
+            </div>
+
+            <div class="row-content header" id="your-character-header">
+                <h2>Your Character</h2>
+            </div>
+
+            <div class="row-content" id="your-character">
+
+            </div>
+
+            <div class="row-content" id="attack-button">
+                <button class="attack-button" id="attack">
+                    Attack
+                </button>
+            </div>
+
+            <div class="row-content header" id="attacking-enemy-header"></div>
+
+            <div class="row-content" id="attacking-enemy"> </div>
+
+            <div class="row-content" id="combat-log"></div>
+
+            <div class="row-content header" id="available-enemies-header">
+                <h2>Enemies Available To Attack</h2>
+            </div>
+
+            <div class="row-content" id="available-enemies"></div>
+
+            
+        </div>
+
+
+
+        <script
+  src="./assets/scripts/game-logic.js"></script>
+    </body>
+</html>
