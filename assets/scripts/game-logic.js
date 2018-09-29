@@ -86,6 +86,15 @@ function enemyDied() {
     enemy = undefined;
     $('#attacking-enemy .opponent').appendTo($('#defeated-enemies'));
     $('#defeated-enemies .opponent').removeClass('opponent');
+
+    checkWinCondition();
+}
+
+function checkWinCondition() {
+    if($('#available-enemies .character-card').length === 0) {
+        printMessage("You win!");
+        resetGame();
+    }
 }
 
 function resetGame() {
@@ -96,6 +105,7 @@ function resetGame() {
     $('#attacking-enemy .character-card').removeClass('opponent');
     $('#attacking-enemy .character-card').appendTo('#character-selection');
     $('#defeated-enemies .character-card').appendTo('#character-selection');
+    $('#available-enemies .character-card').appendTo('#character-selection');
     //find a way to reset character health
     let characters = $('#character-selection .character-card')
     characters.each((i, e) => {
