@@ -65,3 +65,11 @@ Character Card
     height: auto;
 }
 
+.player {
+    background-color: greenyellow;
+}
+
+.opponent {
+    background-color: rgb(126, 11, 11);
+}
+
