@@ -11,14 +11,25 @@ Page Styles
 html,
 body {
     font-size: 18px;
+    min-height: fit-content;
+    height: 100%;
+}
+
+button {
+    border-radius: 3px;
+    padding: .5em;
+    background-color: rgb(186, 186, 62);
 }
 
 .wrapper {
-    height: 100vh;
-    max-height: 100%;
+    background-image: url('./../images/backgrounds/warcraft-background.jpg');
+    background-size: cover;
+    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    overflow: auto;
 }
 
 .row-content {
@@ -41,8 +52,33 @@ body {
     align-items: center;
     justify-content: flex-start;
     flex: 1 0 auto;
+    text-align: center;
+    width: 75%;
+    background-color: rgb(78, 236, 128);
 }
 
+
+
+
+
+
+/*
+=============================================
+Typography
+=============================================
+*/
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(68, 68, 235);
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+button {    
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
 
 
 
@@ -54,14 +90,26 @@ Character Card
 */
 
 .character-card {
+    background-color: white;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid rgb(190, 235, 29);
     min-width: 240px;
     max-width: 20%;
 }
 
 .character-portrait {
     width: 80%;
+    max-width:200px;
     height: auto;
+    max-height: 120px;
+    object-fit: cover;
+    object-position: top;
 }
 
+.player {
+    background-color: rgb(35, 191, 35);
+}
+
+.opponent {
+    background-color: rgb(132, 15, 15);
+}

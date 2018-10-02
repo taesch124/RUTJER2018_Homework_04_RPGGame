@@ -78,7 +78,7 @@ function enemyCounterAttack() {
 function playerDied() {
     printMessage('Game Over!');
     printMessage('Select a new character.');
-    resetGame();
+    switchAttackButton(true);
 }
 
 function enemyDied() {
@@ -90,16 +90,31 @@ function enemyDied() {
     checkWinCondition();
 }
 
+function switchAttackButton(gameOver) {
+    $('#attack').off('click');
+    if(gameOver) {
+        $('#attack').text('Start Over');
+        $('#attack').on('click', function() {
+            resetGame();
+        });
+    } else {
+        $('#attack').text('Attack');
+        $('#attack').on('click', attackEnemy);
+    }
+   
+}
+
 function checkWinCondition() {
     if($('#available-enemies .character-card').length === 0) {
         printMessage("You win!");
-        resetGame();
+        switchAttackButton(true);
     }
 }
 
 function resetGame() {
     characterSelected = false;
     enemySelected = false;
+    switchAttackButton(false);
     $('#your-character .character-card').removeClass('player');
     $('#your-character .character-card').appendTo('#character-selection');
     $('#attacking-enemy .character-card').removeClass('opponent');
