@@ -4,6 +4,11 @@ Page Styles
 =============================================
 */
 
+@font-face {
+    font-family: 'Warcraft';
+    src: url('./../fonts/LifeCraft_Font.ttf')  format('truetype') /* Safari, Android, iOS */
+  }
+
 * {
     box-sizing: border-box;
 }
@@ -18,7 +23,7 @@ body {
 button {
     border-radius: 3px;
     padding: .5em;
-    background-color: rgb(186, 186, 62);
+    background-color: rgb(142, 206, 24);
 }
 
 .wrapper {
@@ -54,7 +59,7 @@ button {
     flex: 1 0 auto;
     text-align: center;
     width: 75%;
-    background-color: rgb(78, 236, 128);
+    background-color: rgb(78, 236, 128, .8);
 }
 
 
@@ -69,15 +74,37 @@ Typography
 */
 
 h2 {
-    font-size: 1.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.75rem;
     font-weight: bold;
     color: rgb(68, 68, 235);
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    text-shadow: -1px 0 rgb(186, 186, 62), 0 1px rgb(186, 186, 62), 1px 0 rgb(186, 186, 62), 0 -1px rgb(186, 186, 62);
+}
+
+h3,
+h4 {
+    font-family: 'Warcraft', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    padding: .33rem;
+    color: white;
+}
+
+#end-game {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#combat-log {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    color: white;
 }
 
 button {    
     font-size: 1.1em;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 
@@ -90,37 +117,43 @@ Character Card
 */
 
 .character-card {
+    margin: .1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
     background-color: white;
     text-align: center;
     border: 2px solid rgb(190, 235, 29);
+    border-radius: 1rem;
     min-width: 240px;
     max-width: 20%;
 }
 
 .character-portrait {
+    align-self: center;
     width: 80%;
     max-width:200px;
     height: auto;
-    max-height: 120px;
+    max-height: 110px;
     object-fit: cover;
     object-position: top;
 }
 
-.player {
-    background-color: rgb(35, 191, 35);
+.alliance {
+    background-color: #162C57;
 }
 
-<<<<<<< HEAD
-.player {
-    background-color: greenyellow;
+.horde {
+    background-color: #8C1616;
 }
+
+.player {
+    background-color: rgb(132, 165, 13);
+}
+
 
 .opponent {
-    background-color: rgb(126, 11, 11);
+    /* background-color: rgb(184, 6, 6); */
+    border-color: rgb(230, 71, 71);
 }
 
-=======
-.opponent {
-    background-color: rgb(132, 15, 15);
-}
->>>>>>> 8cc9c769ab4c08b0fcabb946235d3d055dd6b5b9
